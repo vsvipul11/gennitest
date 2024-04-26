@@ -35,7 +35,7 @@ const OTPPage = () => {
     const handleVerify = async () => {
         console.log(otpValue);
         try {
-            const response = await fetch('http://15.207.106.249:9000/signup', {
+            const response = await fetch('https://testshant.vercel.app/signup', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

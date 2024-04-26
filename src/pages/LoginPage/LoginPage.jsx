@@ -24,7 +24,7 @@ const LoginPage = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await fetch('http://15.207.106.249:9000/login', {
+      const response = await fetch('https://testshant.vercel.app/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

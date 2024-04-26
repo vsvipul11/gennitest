@@ -34,7 +34,7 @@ const SignupPage = () => {
         console.log('Submitting form data:', formData);
     
         try {
-            const response = await fetch(`http://15.207.106.249:9000/otp?email=${formData.email}`);
+            const response = await fetch(`https://testshant.vercel.app/otp?email=${formData.email}`);
             const data = await response.json();
         
             if (response.ok) {
