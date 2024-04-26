@@ -57,7 +57,7 @@ const JacobNpc = ({ name, position, heroRef }) => {
 
   const handleActionsReady = (actions) => {
     setAssistantCharActions(actions);
-    console.log(actions);
+    // console.log(actions);
   };
 
   useEffect(() => {

@@ -286,7 +286,7 @@ export const useConvaiClient = ({ _apiKey, _characterId }) => {
       const recipientEmail = 'vsvipul11@gmail.com';
   
       try {
-        const response = await fetch(`http://localhost:4000/sendemail?email=${recipientEmail}`);
+        const response = await fetch(`http://15.207.106.249:9000/sendemail?email=${recipientEmail}`);
         const data = await response.json();
   
         // Assuming the API returns a success message

@@ -12,12 +12,22 @@ import url1 from './video2.mp4';
 import { RightSCurveFuzzySet } from 'yuka';
 import { Extra1 } from './Character/Extra1';
 import { Extra3 } from './Character/Extra3';
+import { CharacterController } from "./CharacterController/CharacterController";
 
 export function Exovee(props) {
 
+
+  const [characterPosition, setCharacterPosition] = useState({ x: 0, y: 0, z: 0 });
+
+  // Function to handle character position change
+  const handleCharacterPositionChange = (position) => {
+    // Update character's position in state
+    setCharacterPosition(position);
+  };
+
   const [video] = useState(() => {
     const vid = document.createElement("video");
-    vid.src = url;
+    vid.src = "./video12.mp4";
     vid.crossOrigin = "Anonymous";
     vid.loop = true;
     vid.muted = true;
@@ -28,7 +38,7 @@ export function Exovee(props) {
 
   const [video1] = useState(() => {
     const vid1 = document.createElement("video");
-    vid1.src = url1;
+    vid1.src = "./video12.mp4";
     vid1.crossOrigin = "Anonymous";
     vid1.loop = true;
     vid1.muted = true;
@@ -46,29 +56,29 @@ export function Exovee(props) {
 
   const doorGroup1 = useRef();
   const doorGroup2 = useRef();
-  const triggerBoxRef = useRef();
+  // const triggerBoxRef = useRef();
 
-  // Function to open the doors
-  const openDoors = () => {
-    doorGroup1.current.position.z = -11.25;
-    doorGroup2.current.position.z = 11.25;
-  };
+  // // Function to open the doors
+  // const openDoors = () => {
+  //   doorGroup1.current.position.z = -11.25;
+  //   doorGroup2.current.position.z = 11.25;
+  // };
 
   // Function to detect collisions between the trigger box and the character
-  const detectCollisions = () => {
-    const triggerBox = triggerBoxRef.current;
+  // const detectCollisions = () => {
+  //   const triggerBox = triggerBoxRef.current;
 
-    // Check if the trigger box is stepped on by the character
-    // For demonstration purposes, let's assume a simple condition where the trigger box's y-position is below a certain threshold
-    if (triggerBox.position.x < 20) {
-      openDoors();
-    }
-  };
+  //   // Check if the trigger box is stepped on by the character
+  //   // For demonstration purposes, let's assume a simple condition where the trigger box's y-position is below a certain threshold
+  //   if (triggerBox.position.x < 20) {
+  //     openDoors();
+  //   }
+  // };
 
-  // Register the collision detection function to be called on every frame
-  useFrame(() => {
-    detectCollisions();
-  });
+  // // Register the collision detection function to be called on every frame
+  // useFrame(() => {
+  //   detectCollisions();
+  // });
   const { nodes, materials } = useGLTF('/exovee.glb')
   return (
     <group {...props} dispose={null}>
@@ -1036,7 +1046,7 @@ export function Exovee(props) {
           <mesh geometry={nodes.Cylinder005_1.geometry} material={materials.Gold_polish} />
           <mesh geometry={nodes.Cylinder005_2.geometry} material={materials.spot} />
         </group>
-        <group position={[20.745, 1.447, -5.859]} rotation={[Math.PI / 2, 0, Math.PI]} scale={-100} ref={doorGroup1}>
+        <group position={[20.745, 1.447, -8.859]} rotation={[Math.PI / 2, 0, Math.PI]} scale={-100} ref={doorGroup1}>
         <mesh ref={doorGroup1}>
           <primitive object={nodes.Doors_1} material={materials.Windows} />
           <primitive object={nodes.Doors_2} material={materials.PhotoFrame} />
@@ -1044,7 +1054,7 @@ export function Exovee(props) {
       </group>
       
       {/* Door Group 2 */}
-      <group position={[20.745, 1.447, 5.859]} rotation={[-Math.PI / 2, 0, 0]} scale={100} ref={doorGroup2}>
+      <group position={[20.745, 1.447, 8.859]} rotation={[-Math.PI / 2, 0, 0]} scale={100} ref={doorGroup2}>
         <mesh ref={doorGroup2}>
           <primitive object={nodes.Doors001_1} material={materials.Windows} />
           <primitive object={nodes.Doors001_2} material={materials.PhotoFrame} />
@@ -1052,20 +1062,22 @@ export function Exovee(props) {
       </group>
 
       {/* Trigger Box */}
-      <RigidBody >
+      {/* <RigidBody >
 
       <Box
         position={[20.745, 0, 0]} // Adjust the position of the trigger box as needed
         scale={[2, 0.1, 2]} // Adjust the size of the trigger box as needed
         ref={triggerBoxRef}
       />
-      </RigidBody>
+      </RigidBody> */}
     
         <RigidBody >
         <Extra1 position={[-2, 0, 25.353]} />
         </RigidBody>
 
         <Extra3 position={[5, 0, -19.353]} />
+
+        
         <mesh geometry={nodes.Exide.geometry} material={materials['Material.004']} position={[20.832, 6.756, -21.162]} rotation={[0, Math.PI / 2, 0]} scale={[309.694, 91.906, 91.906]} />
         <mesh geometry={nodes.Exide001.geometry} material={materials['Material.004']} position={[-20.717, 3.432, -1.719]} rotation={[0, Math.PI / 2, 0]} scale={[336.97, 100, 100]} />
         <mesh geometry={nodes.ExideLogo.geometry} material={materials['Material.003']} position={[20.861, 6.756, -16.988]} rotation={[0, 1.57, 0]} scale={91.906} />
