@@ -15,7 +15,7 @@ export const Experience = ({ heroRef }) => {
       {/* YUKA manager */}
       <Manager>
         {/* Hero character controller component */}
-        {/* <Environment background files="/scene.hdr" /> */}
+        <Environment background files="/scene.hdr" />
         <CharacterController reference={heroRef} position={[50,0,0]} />
         {/* Convai NPC Jacob component */}
         <JacobNpc name="Jacob" position={[0, 0, 0]} heroRef={heroRef} />
