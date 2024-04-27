@@ -7,8 +7,8 @@ import React, { useRef, useState , Suspense} from 'react'
 import { Box,useGLTF, PerspectiveCamera , useAspect, useVideoTexture, useTexture, Text } from '@react-three/drei'
 import { Physics, RigidBody, CuboidCollider } from '@react-three/rapier'
 import { useFrame } from '@react-three/fiber';
-import url from './video12.mp4'; 
-import url1 from './video2.mp4';
+//  import url from './vid.mp4'; 
+// import url1 from './vid.mp4';
 import { RightSCurveFuzzySet } from 'yuka';
 import { Extra1 } from './Character/Extra1';
 import { Extra3 } from './Character/Extra3';
@@ -25,9 +25,14 @@ export function Exovee(props) {
     setCharacterPosition(position);
   };
 
+  var url = "https://heybuddywebsite.s3.ap-south-1.amazonaws.com/Images/video12+(online-video-cutter.com)+(1)+(1).mp4"
+  var url1 = "https://heybuddywebsite.s3.ap-south-1.amazonaws.com/Images/video2.mp4"
+
+
+
   const [video] = useState(() => {
     const vid = document.createElement("video");
-    vid.src = "./video12.mp4";
+    vid.src="https://heybuddywebsite.s3.ap-south-1.amazonaws.com/Images/video2.mp4"
     vid.crossOrigin = "Anonymous";
     vid.loop = true;
     vid.muted = true;
@@ -38,7 +43,7 @@ export function Exovee(props) {
 
   const [video1] = useState(() => {
     const vid1 = document.createElement("video");
-    vid1.src = "./video12.mp4";
+    vid1.src="https://heybuddywebsite.s3.ap-south-1.amazonaws.com/Images/video+(1080p).mp4"
     vid1.crossOrigin = "Anonymous";
     vid1.loop = true;
     vid1.muted = true;
