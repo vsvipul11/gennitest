@@ -7,12 +7,16 @@ import React, { useRef, useState , Suspense} from 'react'
 import { Box,useGLTF, PerspectiveCamera , useAspect, useVideoTexture, useTexture, Text } from '@react-three/drei'
 import { Physics, RigidBody, CuboidCollider } from '@react-three/rapier'
 import { useFrame } from '@react-three/fiber';
-//  import url from './vid.mp4'; 
-// import url1 from './vid.mp4';
+ import url from './video12.mp4'; 
+  import url1 from './video2.mp4';
 import { RightSCurveFuzzySet } from 'yuka';
 import { Extra1 } from './Character/Extra1';
 import { Extra3 } from './Character/Extra3';
 import { CharacterController } from "./CharacterController/CharacterController";
+import  VideoTexture  from './VideoTexture';
+import  VideoTexture1  from './VideoTexture1';
+import { Canvas } from '@react-three/fiber';
+
 
 export function Exovee(props) {
 
@@ -25,32 +29,32 @@ export function Exovee(props) {
     setCharacterPosition(position);
   };
 
-  var url = "https://heybuddywebsite.s3.ap-south-1.amazonaws.com/Images/video12+(online-video-cutter.com)+(1)+(1).mp4"
-  var url1 = "https://heybuddywebsite.s3.ap-south-1.amazonaws.com/Images/video2.mp4"
+  // var url = "https://heybuddywebsite.s3.ap-south-1.amazonaws.com/Images/video12+(online-video-cutter.com)+(1)+(1).mp4"
+  //  var url1 = "https://heybuddywebsite.s3.ap-south-1.amazonaws.com/Images/video2.mp4"
 
 
 
-  const [video] = useState(() => {
-    const vid = document.createElement("video");
-    vid.src="https://heybuddywebsite.s3.ap-south-1.amazonaws.com/Images/video2.mp4"
-    vid.crossOrigin = "Anonymous";
-    vid.loop = true;
-    vid.muted = true;
-    vid.play();
-    // vid.style.transform = 'rotateX(90deg) rotateY(45deg)';
-    return vid;
-  });
+  // const [video] = useState(() => {
+  //   const vid = document.createElement("video");
+  //   vid.src="https://heybuddywebsite.s3.ap-south-1.amazonaws.com/Images/video2.mp4"
+  //   vid.crossOrigin = "Anonymous";
+  //   vid.loop = true;
+  //   vid.muted = true;
+  //   vid.play();
+  //   // vid.style.transform = 'rotateX(90deg) rotateY(45deg)';
+  //   return vid;
+  // });
 
-  const [video1] = useState(() => {
-    const vid1 = document.createElement("video");
-    vid1.src="https://heybuddywebsite.s3.ap-south-1.amazonaws.com/Images/video+(1080p).mp4"
-    vid1.crossOrigin = "Anonymous";
-    vid1.loop = true;
-    vid1.muted = true;
-    vid1.play();
-    // vid.style.transform = 'rotateX(90deg) rotateY(45deg)';
-    return vid1;
-  });
+  // const [video1] = useState(() => {
+  //   const vid1 = document.createElement("video");
+  //   vid1.src="https://heybuddywebsite.s3.ap-south-1.amazonaws.com/Images/video+(1080p).mp4"
+  //   vid1.crossOrigin = "Anonymous";
+  //   vid1.loop = true;
+  //   vid1.muted = true;
+  //   vid1.play();
+  //   // vid.style.transform = 'rotateX(90deg) rotateY(45deg)';
+  //   return vid1;
+  // });
 
   
   const [boxVisible, setBoxVisible] = useState(false);
@@ -882,13 +886,13 @@ export function Exovee(props) {
         <mesh geometry={nodes.______urtain_Curtain_0.geometry} material={materials.Curtain} position={[5.101, 5.624, -28.144]} rotation={[3.115, 0, 0]} scale={5.189} />
         <group position={[4.5, 5.624, -28.144]} rotation={[0, 0,0]}>
  
-   {/* <Box position={[-7, -2, 0]} args={[5, 4.2, 0.1]} visible={false}>
+   <Box position={[-7, -2, 0]} args={[5, 4.2, 0.1]} visible={false}>
     
-    <Suspense fallback={<FallbackMaterial url={url1} />}>
-           <VideoMaterial url={url1} />
+    <Suspense fallback= {null}>
+            <VideoTexture1 url={url1} />
            </Suspense>
    
-  </Box> */}
+  </Box>
 
 <Box
   position={[-6.7, -4.6, 0]}
@@ -912,9 +916,12 @@ export function Exovee(props) {
 </Text>
 
   {boxVisible && (
+     
         <Box position={[-7, -2, 0]} args={[5, 4.2, 0.1]} visible={true}>
-          <Suspense fallback={<FallbackMaterial url={url1} />}>
-            <VideoMaterial url={url1} />
+          <Suspense fallback={null}>
+          <VideoTexture1 url={url1} />
+         
+            
           </Suspense>
         </Box>
       )}
@@ -1090,8 +1097,9 @@ export function Exovee(props) {
         <group position={[2.051, 3.21, 28.353]} rotation={[-Math.PI / 2, 0, 0]} scale={[126.85, 100, 153.09]}>
           <mesh geometry={nodes.Plane013_1.geometry} material={materials.TV} />
           <mesh geometry={nodes.Plane013_2.geometry} material={materials['Material.002']}>
-          <Suspense fallback={<FallbackMaterial url={url} />}>
-           <VideoMaterial url={url} />
+          <Suspense fallback={null}>
+          <VideoTexture url={url} />
+
            </Suspense>
           </mesh>
         </group>
@@ -1140,15 +1148,15 @@ export function Exovee(props) {
   )
 }
 
-function VideoMaterial({ url }) {
-  const texture = useVideoTexture(url)
-  return <meshBasicMaterial map={texture} toneMapped={false} />
-}
+// function VideoMaterial({ url }) {
+//   const texture = useVideoTexture(url)
+//   return <meshBasicMaterial map={texture} toneMapped={false} />
+// }
 
-function FallbackMaterial({ url }) {
-  const texture1 = useTexture(url)
-  return <meshBasicMaterial map={texture1} toneMapped={false} />
-}
+// function FallbackMaterial({ url }) {
+//   const texture1 = useTexture(url)
+//   return <meshBasicMaterial map={texture1} toneMapped={false} />
+// }
 
 
 
