@@ -28,7 +28,7 @@ let rotateAngle = new THREE.Vector3(0, 1, 0);
 let cameraTarget = new THREE.Vector3();
 let rotateQuartenion = new THREE.Quaternion();
 let beckyPrevPosition = new THREE.Vector3();
-export const CharacterController = ({ reference }) => {
+export const CharacterController = ({ reference  }) => {
   const [maleCharActions, setMaleCharActions] = useState(null);
 
   const camera = useThree((state) => state.camera);

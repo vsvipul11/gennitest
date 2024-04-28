@@ -7,6 +7,7 @@ import { JacobNpc } from "./Npcs";
 import { YukaMesh } from "./Yuka/YukaMesh";
 import { Environment } from '@react-three/drei'
 
+
 export const Experience = ({ heroRef }) => {
   return (
     <>

@@ -9,6 +9,7 @@ import ChatBubble from "./components/chat/Chat";
 
 const testing = false;
 function App() {
+
   const actions = useZustStore((state) => state.actions);
   // global client state
   const clientState = useZustStore((state) => state.clientState);

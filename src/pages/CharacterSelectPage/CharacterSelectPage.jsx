@@ -62,7 +62,8 @@ const CharacterSelectPage = () => {
           Enter
         </button>
       </div>
-    </div>
+      {/* Conditionally render the CharacterController component */}
+       </div>
   );
 };
 

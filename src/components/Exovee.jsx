@@ -461,30 +461,42 @@ export function Exovee(props) {
           </group>
           <mesh geometry={nodes.Logo036.geometry} material={materials['BatterySticker.001']} position={[0,  -0.0028, -0.011]} scale={[0.747, 1, 1.41]} />
         </group>
+        <RigidBody colliders="trimesh" type='fixed' friction={2}>
         <group position={[6.806, 0.719, 14.473]} rotation={[-Math.PI / 2, 0, 0]} scale={[39.773, 43.941, 67.529]}>
           <mesh geometry={nodes.Chai.geometry} material={materials.Metal} position={[0.005, 0, -0.011]} scale={[2.514, 2.276, 1.481]} />
           <mesh geometry={nodes.Plane001.geometry} material={materials.Chair} position={[0.008, 0, -0.001]} scale={[1.622, 1.468, 0.955]} />
         </group>
+        </RigidBody>
+        <RigidBody colliders="trimesh" type='fixed' friction={2}>
         <group position={[2.88, 0.719, 14.473]} rotation={[-Math.PI / 2, 0, -Math.PI]} scale={[39.773, 43.941, 67.529]}>
           <mesh geometry={nodes.Plane003.geometry} material={materials.Chair} position={[0.008, 0, -0.001]} scale={[1.622, 1.468, 0.955]} />
           <mesh geometry={nodes.Chai001.geometry} material={materials.Metal} position={[0.005, 0, -0.011]} scale={[2.514, 2.276, 1.481]} />
         </group>
+        </RigidBody>
+        <RigidBody colliders="trimesh" type='fixed' friction={2}>
         <group position={[4.788, 0.719, 12.286]} rotation={[-Math.PI / 2, 0, Math.PI / 2]} scale={[39.773, 43.941, 67.529]}>
           <mesh geometry={nodes.Plane004.geometry} material={materials.Chair} position={[0.008, 0, -0.001]} scale={[1.622, 1.468, 0.955]} />
           <mesh geometry={nodes.Chai002.geometry} material={materials.Metal} position={[0.005, 0, -0.011]} scale={[2.514, 2.276, 1.481]} />
         </group>
+        </RigidBody>
+        <RigidBody colliders="trimesh" type='fixed' friction={2}>
         <group position={[4.788, 0.719, 16.683]} rotation={[-Math.PI / 2, 0, -Math.PI / 2]} scale={[39.773, 43.941, 67.529]}>
           <mesh geometry={nodes.Plane005.geometry} material={materials.Chair} position={[0.008, 0, -0.001]} scale={[1.622, 1.468, 0.955]} />
           <mesh geometry={nodes.Chai003.geometry} material={materials.Metal} position={[0.005, 0, -0.011]} scale={[2.514, 2.276, 1.481]} />
         </group>
+        </RigidBody>
+        <RigidBody colliders="trimesh" type='fixed' friction={2}>
         <group position={[-17.931, 0.719, 0]} rotation={[-Math.PI / 2, 0, -Math.PI]} scale={[39.773, 43.941, 67.529]}>
           <mesh geometry={nodes.Plane006.geometry} material={materials.Chair} position={[0.008, 0, -0.001]} scale={[1.622, 1.468, 0.955]} />
           <mesh geometry={nodes.Chai004.geometry} material={materials.Metal} position={[0.005, 0, -0.011]} scale={[2.514, 2.276, 1.481]} />
         </group>
+        </RigidBody>
+        <RigidBody colliders="trimesh" type='fixed' friction={2}>
         <group position={[15.602, 0, 23.048]} rotation={[-Math.PI / 2, 0, 0]} scale={100}>
           <mesh geometry={nodes.Circle005.geometry} material={materials.Windows} />
           <mesh geometry={nodes.Circle006.geometry} material={materials.Plinth} />
         </group>
+        </RigidBody>
         <group position={[15.602, 0, 14.514]} rotation={[-Math.PI / 2, 0, Math.PI / 2]} scale={100}>
           <mesh geometry={nodes.Circle008.geometry} material={materials.Windows} />
           <mesh geometry={nodes.Circle009.geometry} material={materials.Plinth} />
@@ -500,9 +512,11 @@ export function Exovee(props) {
         <group position={[5.1, 7.125, -17.064]} rotation={[Math.PI, 0, 0]} scale={220}>
           <group position={[0, 0.009, 0]} rotation={[Math.PI / 2, 0, 0]} scale={0.001}>
             <group position={[-0.07, -0.019, 5.286]} rotation={[-Math.PI / 2, 0, 0]}>
+            <RigidBody colliders="trimesh" type='fixed' friction={2}>
               <group position={[0.068, -5.245, 0.017]} rotation={[-Math.PI, -Math.PI / 3, -Math.PI]}>
                 <mesh geometry={nodes['111_Tros_0'].geometry} material={materials.Tros} position={[0, 0.478, 0]} />
               </group>
+              </RigidBody>
               <group position={[0.068, 5.064, 0.017]} rotation={[Math.PI / 2, 0, Math.PI / 6]} scale={0.731}>
                 <group position={[5.677, 0, 0]}>
                   <mesh geometry={nodes.Egg003_Diod_light_0.geometry} material={materials.Diod_light} />
@@ -603,6 +617,7 @@ export function Exovee(props) {
             </group>
           </group>
         </group>
+        <RigidBody colliders="trimesh" type='fixed' friction={2}>
         <group position={[2.484, 0.022, -23.174]} rotation={[Math.PI, 0.976, -Math.PI]} scale={2000}>
           <group rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
             <mesh geometry={nodes.polySurface3_inicio_spot_0.geometry} material={materials.inicio_spot} />
@@ -611,6 +626,8 @@ export function Exovee(props) {
             <mesh geometry={nodes.polySurface3_suporte_0.geometry} material={materials.suporte} />
           </group>
         </group>
+        </RigidBody>
+        <RigidBody colliders="trimesh" type='fixed' friction={2}>
         <group position={[7.824, 0.022, -23.174]} rotation={[Math.PI, -0.857, Math.PI]} scale={[2000.001, 2000, 2000]}>
           <group rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
             <mesh geometry={nodes.polySurface3_luz_0001.geometry} material={materials.material} position={[0, 0.01, 0.004]} />
@@ -619,18 +636,23 @@ export function Exovee(props) {
             <mesh geometry={nodes.polySurface3_suporte_0001.geometry} material={materials.suporte} />
           </group>
         </group>
+        </RigidBody>
+        <RigidBody colliders="trimesh" type='fixed' friction={2}>
         <group position={[-16.375, 1.024, -3.235]} rotation={[Math.PI, Math.PI / 2, 0]} scale={162.617}>
           <mesh geometry={nodes['macpro-material'].geometry} material={materials['macpro.001']} />
           <mesh geometry={nodes['macpro_keybord_and_mouse-material'].geometry} material={materials['macpro_keybord_and_mouse.001']} />
           <mesh geometry={nodes['macpro_monitor_001-material'].geometry} material={materials['macpro_monitor.002']} rotation={[0, -Math.PI / 9, 0]} />
           <mesh geometry={nodes['macpro_keybord_and_mouse-material001'].geometry} material={materials['macpro_keybord_and_mouse.001']} />
         </group>
+        </RigidBody>
+        <RigidBody colliders="trimesh" type='fixed' friction={2}>
         <group position={[-16.375, 1.024, 3.659]} rotation={[0, -Math.PI / 2, 0]} scale={-162.617}>
           <mesh geometry={nodes['macpro-material001'].geometry} material={materials['Image_0.004']} />
           <mesh geometry={nodes['macpro_keybord_and_mouse-material002'].geometry} material={materials['macpro_keybord_and_mouse.001']} />
           <mesh geometry={nodes['macpro_monitor_001-material001'].geometry} material={materials['macpro_monitor.002']} rotation={[0, -Math.PI / 9, 0]} />
           <mesh geometry={nodes['macpro_keybord_and_mouse-material003'].geometry} material={materials['macpro_keybord_and_mouse.001']} />
         </group>
+        </RigidBody>
         <group position={[20.352, 0.701, 27.941]} rotation={[Math.PI, 0, 0]} scale={100}>
           <mesh geometry={nodes.Object_4.geometry} material={materials.arch_books__3} />
           <mesh geometry={nodes.Object_5.geometry} material={materials.arch_books_front} />
@@ -697,6 +719,7 @@ export function Exovee(props) {
             <mesh geometry={nodes.Buku12_1.geometry} material={materials.BookCover12} />
           </group>
         </group>
+        <RigidBody colliders="trimesh" type='fixed' friction={2}>
         <group position={[19.854, 0, 6.865]} rotation={[Math.PI, 0, 0]} scale={100}>
           <group rotation={[Math.PI / 2, 0, 0]}>
             <group scale={0.01}>
@@ -706,6 +729,8 @@ export function Exovee(props) {
             </group>
           </group>
         </group>
+        </RigidBody>
+        <RigidBody colliders="trimesh" type='fixed' friction={2}>
         <group position={[19.854, 0, -6.77]} rotation={[Math.PI, 0, 0]} scale={100}>
           <group rotation={[Math.PI / 2, 0, 0]}>
             <group scale={0.01}>
@@ -715,6 +740,8 @@ export function Exovee(props) {
             </group>
           </group>
         </group>
+        </RigidBody>
+        <RigidBody colliders="trimesh" type='fixed' friction={2}>
         <group position={[-19.789, 0, -7.918]} rotation={[Math.PI, 0, 0]} scale={100}>
           <group rotation={[Math.PI / 2, 0, 0]}>
             <group scale={0.01}>
@@ -724,6 +751,8 @@ export function Exovee(props) {
             </group>
           </group>
         </group>
+        </RigidBody>
+        <RigidBody colliders="trimesh" type='fixed' friction={2}>
         <group position={[-19.775, 0, 8.326]} rotation={[Math.PI, 0, 0]} scale={100}>
           <group rotation={[Math.PI / 2, 0, 0]}>
             <group scale={0.01}>
@@ -733,15 +762,21 @@ export function Exovee(props) {
             </group>
           </group>
         </group>
+        </RigidBody>
+        <RigidBody colliders="trimesh" type='fixed' friction={2}>
         <group position={[10.012, 0.937, -8.861]} rotation={[-Math.PI / 2, 0, 0]} scale={72.02}>
           <group position={[0, 0, 0.006]} rotation={[-Math.PI / 2, 0, -1.041]} scale={0.043}>
             <mesh geometry={nodes.Object_2002.geometry} material={materials['image-screen']} />
             <mesh geometry={nodes.Object_3.geometry} material={materials.tablet} />
           </group>
+         
           <group rotation={[-Math.PI / 2, 0, 0]} scale={0.007}>
             <mesh geometry={nodes.Object_2003.geometry} material={materials['Scene_-_Root.001']} position={[0, -0.287, 0]} />
           </group>
         </group>
+        </RigidBody>
+        <RigidBody colliders="trimesh" type='fixed' friction={2}>
+
         <group position={[10.899, 0.937, -9.737]} rotation={[-Math.PI / 2, 0, -Math.PI / 2]} scale={72.02}>
           <group position={[0, 0, 0.006]} rotation={[-Math.PI / 2, 0, -1.041]} scale={0.043}>
             <mesh geometry={nodes.Object_2004.geometry} material={materials['image-screen']} />
@@ -751,6 +786,10 @@ export function Exovee(props) {
             <mesh geometry={nodes.Object_2005.geometry} material={materials['Scene_-_Root.001']} position={[0, -0.287, 0]} />
           </group>
         </group>
+        </RigidBody>
+
+        <RigidBody colliders="trimesh" type='fixed' friction={2}>
+
         <group position={[11.68, 0.937, -8.911]} rotation={[-Math.PI / 2, 0, -Math.PI]} scale={72.02}>
           <group position={[0, 0, 0.006]} rotation={[-Math.PI / 2, 0, -1.041]} scale={0.043}>
             <mesh geometry={nodes.Object_2006.geometry} material={materials['image-screen']} />
@@ -760,6 +799,10 @@ export function Exovee(props) {
             <mesh geometry={nodes.Object_2007.geometry} material={materials['Scene_-_Root.001']} position={[0, -0.287, 0]} />
           </group>
         </group>
+        </RigidBody>
+
+        <RigidBody colliders="trimesh" type='fixed' friction={2}>
+
         <group position={[10.899, 0.937, -8.102]} rotation={[-Math.PI / 2, 0, Math.PI / 2]} scale={72.02}>
           <group position={[0, 0, 0.006]} rotation={[-Math.PI / 2, 0, -1.041]} scale={0.043}>
             <mesh geometry={nodes.Object_2008.geometry} material={materials['image-screen']} />
@@ -769,6 +812,10 @@ export function Exovee(props) {
             <mesh geometry={nodes.Object_2009.geometry} material={materials['Scene_-_Root.001']} position={[0, -0.287, 0]} />
           </group>
         </group>
+        </RigidBody>
+
+        <RigidBody colliders="trimesh" type='fixed' friction={2}>
+
         <group position={[-7.146, 0.937, -8.861]} rotation={[-Math.PI / 2, 0, 0]} scale={72.02}>
           <group position={[0, 0, 0.006]} rotation={[-Math.PI / 2, 0, -1.041]} scale={0.043}>
             <mesh geometry={nodes.Object_2010.geometry} material={materials['image-screen']} />
@@ -778,6 +825,10 @@ export function Exovee(props) {
             <mesh geometry={nodes.Object_2015.geometry} material={materials['Scene_-_Root.001']} position={[0, -0.287, 0]} />
           </group>
         </group>
+        </RigidBody>
+
+        <RigidBody colliders="trimesh" type='fixed' friction={2}>
+
         <group position={[-6.259, 0.937, -9.737]} rotation={[-Math.PI / 2, 0, -Math.PI / 2]} scale={72.02}>
           <group position={[0, 0, 0.006]} rotation={[-Math.PI / 2, 0, -1.041]} scale={0.043}>
             <mesh geometry={nodes.Object_2016.geometry} material={materials['image-screen']} />
@@ -787,6 +838,10 @@ export function Exovee(props) {
             <mesh geometry={nodes.Object_2017.geometry} material={materials['Scene_-_Root.001']} position={[0, -0.287, 0]} />
           </group>
         </group>
+        </RigidBody>
+
+        <RigidBody colliders="trimesh" type='fixed' friction={2}>
+
         <group position={[-5.478, 0.937, -8.911]} rotation={[-Math.PI / 2, 0, -Math.PI]} scale={72.02}>
           <group position={[0, 0, 0.006]} rotation={[-Math.PI / 2, 0, -1.041]} scale={0.043}>
             <mesh geometry={nodes.Object_2011.geometry} material={materials['image-screen']} />
@@ -796,6 +851,9 @@ export function Exovee(props) {
             <mesh geometry={nodes.Object_2014.geometry} material={materials['Scene_-_Root.001']} position={[0, -0.287, 0]} />
           </group>
         </group>
+        </RigidBody>
+        <RigidBody colliders="trimesh" type='fixed' friction={2}>
+
         <group position={[-6.259, 0.937, -8.102]} rotation={[-Math.PI / 2, 0, Math.PI / 2]} scale={72.02}>
           <group position={[0, 0, 0.006]} rotation={[-Math.PI / 2, 0, -1.041]} scale={0.043}>
             <mesh geometry={nodes.Object_2012.geometry} material={materials['image-screen']} />
@@ -805,6 +863,10 @@ export function Exovee(props) {
             <mesh geometry={nodes.Object_2013.geometry} material={materials['Scene_-_Root.001']} position={[0, -0.287, 0]} />
           </group>
         </group>
+        </RigidBody>
+
+        <RigidBody colliders="trimesh" type='fixed' friction={2}>
+
         <group position={[-7.185, 0.937, 8.906]} rotation={[-Math.PI / 2, 0, 0]} scale={72.02}>
           <group position={[0, 0, 0.006]} rotation={[-Math.PI / 2, 0, -1.041]} scale={0.043}>
             <mesh geometry={nodes.Object_2018.geometry} material={materials['image-screen']} />
@@ -814,6 +876,10 @@ export function Exovee(props) {
             <mesh geometry={nodes.Object_2023.geometry} material={materials['Scene_-_Root.001']} position={[0, -0.287, 0]} />
           </group>
         </group>
+        </RigidBody>
+
+        <RigidBody colliders="trimesh" type='fixed' friction={2}>
+
         <group position={[-6.298, 0.937, 8.031]} rotation={[-Math.PI / 2, 0, -Math.PI / 2]} scale={72.02}>
           <group position={[0, 0, 0.006]} rotation={[-Math.PI / 2, 0, -1.041]} scale={0.043}>
             <mesh geometry={nodes.Object_2024.geometry} material={materials['image-screen']} />
@@ -823,6 +889,10 @@ export function Exovee(props) {
             <mesh geometry={nodes.Object_2025.geometry} material={materials['Scene_-_Root.001']} position={[0, -0.287, 0]} />
           </group>
         </group>
+        </RigidBody>
+
+        <RigidBody colliders="trimesh" type='fixed' friction={2}>
+
         <group position={[-5.517, 0.937, 8.856]} rotation={[-Math.PI / 2, 0, -Math.PI]} scale={72.02}>
           <group position={[0, 0, 0.006]} rotation={[-Math.PI / 2, 0, -1.041]} scale={0.043}>
             <mesh geometry={nodes.Object_2019.geometry} material={materials['image-screen']} />
@@ -832,6 +902,10 @@ export function Exovee(props) {
             <mesh geometry={nodes.Object_2022.geometry} material={materials['Scene_-_Root.001']} position={[0, -0.287, 0]} />
           </group>
         </group>
+        </RigidBody>
+
+        <RigidBody colliders="trimesh" type='fixed' friction={2}>
+
         <group position={[-6.298, 0.937, 9.665]} rotation={[-Math.PI / 2, 0, Math.PI / 2]} scale={72.02}>
           <group position={[0, 0, 0.006]} rotation={[-Math.PI / 2, 0, -1.041]} scale={0.043}>
             <mesh geometry={nodes.Object_2020.geometry} material={materials['image-screen']} />
@@ -841,6 +915,9 @@ export function Exovee(props) {
             <mesh geometry={nodes.Object_2021.geometry} material={materials['Scene_-_Root.001']} position={[0, -0.287, 0]} />
           </group>
         </group>
+        </RigidBody>
+        <RigidBody colliders="trimesh" type='fixed' friction={2}>
+
         <group position={[9.986, 0.937, 8.906]} rotation={[-Math.PI / 2, 0, 0]} scale={72.02}>
           <group position={[0, 0, 0.006]} rotation={[-Math.PI / 2, 0, -1.041]} scale={0.043}>
             <mesh geometry={nodes.Object_2026.geometry} material={materials['image-screen']} />
@@ -850,6 +927,10 @@ export function Exovee(props) {
             <mesh geometry={nodes.Object_2031.geometry} material={materials['Scene_-_Root.001']} position={[0, -0.287, 0]} />
           </group>
         </group>
+        </RigidBody>
+
+        <RigidBody colliders="trimesh" type='fixed' friction={2}>
+
         <group position={[10.873, 0.937, 8.031]} rotation={[-Math.PI / 2, 0, -Math.PI / 2]} scale={72.02}>
           <group position={[0, 0, 0.006]} rotation={[-Math.PI / 2, 0, -1.041]} scale={0.043}>
             <mesh geometry={nodes.Object_2032.geometry} material={materials['image-screen']} />
@@ -859,6 +940,10 @@ export function Exovee(props) {
             <mesh geometry={nodes.Object_2033.geometry} material={materials['Scene_-_Root.001']} position={[0, -0.287, 0]} />
           </group>
         </group>
+        </RigidBody>
+
+        <RigidBody colliders="trimesh" type='fixed' friction={2}>
+
         <group position={[11.654, 0.937, 8.856]} rotation={[-Math.PI / 2, 0, -Math.PI]} scale={72.02}>
           <group position={[0, 0, 0.006]} rotation={[-Math.PI / 2, 0, -1.041]} scale={0.043}>
             <mesh geometry={nodes.Object_2027.geometry} material={materials['image-screen']} />
@@ -868,6 +953,10 @@ export function Exovee(props) {
             <mesh geometry={nodes.Object_2030.geometry} material={materials['Scene_-_Root.001']} position={[0, -0.287, 0]} />
           </group>
         </group>
+        </RigidBody>
+
+        <RigidBody colliders="trimesh" type='fixed' friction={2}>
+
         <group position={[10.873, 0.937, 9.665]} rotation={[-Math.PI / 2, 0, Math.PI / 2]} scale={72.02}>
           <group position={[0, 0, 0.006]} rotation={[-Math.PI / 2, 0, -1.041]} scale={0.043}>
             <mesh geometry={nodes.Object_2028.geometry} material={materials['image-screen']} />
@@ -877,6 +966,7 @@ export function Exovee(props) {
             <mesh geometry={nodes.Object_2029.geometry} material={materials['Scene_-_Root.001']} position={[0, -0.287, 0]} />
           </group>
         </group>
+        </RigidBody>
         <group position={[4.832, 0, 14.472]} rotation={[-Math.PI / 2, 0, Math.PI / 2]} scale={100}>
           <mesh geometry={nodes.Plane020.geometry} material={materials.Marble} />
           <mesh geometry={nodes.Plane023.geometry} material={materials.Metal} />
@@ -993,8 +1083,6 @@ export function Exovee(props) {
         </group>
         </RigidBody>
         <RigidBody colliders="trimesh" type='fixed' >
-
-       
         <group rotation={[-Math.PI / 2, 0, 0]} scale={100}>
           <mesh geometry={nodes.Cube003_1.geometry} material={materials.Walls} />
           <mesh geometry={nodes.Cube003_2.geometry} material={materials.Plinth} />
@@ -1031,7 +1119,6 @@ export function Exovee(props) {
         <mesh geometry={nodes.Cube011.geometry} material={materials.Floor} rotation={[-Math.PI / 2, 0, 0]} scale={100} />
         </RigidBody>
         <RigidBody colliders="trimesh" type='fixed'>
-
         <mesh geometry={nodes.Cube012.geometry} material={materials.Marble} position={[20.039, 1.346, 27.58]} rotation={[-Math.PI / 2, 0, 0]} scale={100} />
         <group position={[-6.323, 0, 8.912]} rotation={[-Math.PI / 2, 0, 0]} scale={100}>
           <mesh geometry={nodes.Cylinder_1.geometry} material={materials.Pillars} />

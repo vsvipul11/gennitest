@@ -77,9 +77,9 @@ const JacobNpc = ({ name, position, heroRef }) => {
         assistantCharActions.Talking.play();
       } else {
         updateActionState.Jacob("listening");
-        assistantCharActions.Idle.play();
-        assistantCharActions.Talking.stop();
-        assistantCharActions.Namaskar.stop();
+       // assistantCharActions.Idle.play();
+        // assistantCharActions.Talking.stop();
+        // assistantCharActions.Namaskar.stop();
       }
       window.addEventListener("keydown", client?.handleKeyPress);
       window.addEventListener("keyup", client?.handleKeyRelease);
@@ -111,8 +111,8 @@ const JacobNpc = ({ name, position, heroRef }) => {
       if (distance > MIN_DISTANCE_JACOB) {
       
         assistantCharActions.Idle.play();
-       assistantCharActions.Talking.stop();
-       assistantCharActions.Namaskar.stop();
+        assistantCharActions.Talking.stop();
+        assistantCharActions.Namaskar.stop();
     
        
         client.setIsProximity(false);
@@ -129,16 +129,18 @@ const JacobNpc = ({ name, position, heroRef }) => {
      // Declare a boolean variable to track if Namaskar animation has been played
 
     if (distance < MIN_DISTANCE_JACOB && clientState === null ) {
-        if (!playedNamaskarAnimation) {
+        
             client?.setIsProximity(true);
             // assistantCharActions.Namaskar.play();
             // assistantCharActions.Idle.stop();
+            console.log('hhehehe')
+            assistantCharActions.Idle.stop();
             assistantCharActions.Talking.stop();
-           
-            playedNamaskarAnimation = true; // Update the variable to indicate that Namaskar animation has been played
-        } else {
-            // assistantCharActions.Idle.play(); // Play idle animation if Namaskar has been played once
-        }
+            assistantCharActions.Namaskar.setLoop(THREE.LoopOnce);
+            assistantCharActions.Namaskar.play();
+            setTimeout(() => {
+              assistantCharActions.Idle.play();
+          }, 3000); // 4 seconds delay
     }
   });
 
