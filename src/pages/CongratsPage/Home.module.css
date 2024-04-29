@@ -26,6 +26,7 @@
   border-radius: 15px;
   display: flex;
   flex-direction: row;
+  overflow: auto;  
 
 }
 
@@ -34,7 +35,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 12em;
+  margin-top: 6em;
+  justify-content: center;
+  overflow: auto;  
+
 }
 
 .logindiv{
@@ -46,7 +50,7 @@
   border-radius: 15px;
   margin: 2em;
   flex-direction: column;
-  overflow: none;
+  overflow: auto;    
   
 }
 
@@ -59,7 +63,7 @@
   background-color: aliceblue;
   padding: 8px;
   border-radius: 20px;
-  margin-top: 11em;
+  margin-top: 8em;
 
 }
 

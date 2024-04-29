@@ -28,8 +28,8 @@ const CharacterSelectPage = () => {
       <div className={styles.centerdiv1}>
         <div className={styles.header}>
           <div style={{display: 'flex' , flexDirection: 'column', width: '50%', marginLeft: '2em' }}>
-            <h1 style={{color: 'white' , fontSize: '1.5em', marginBottom: '0em', marginTop: '1em'}}>Welcome to</h1>
-            <h1 style={{color: 'white' , fontSize: '4.5em', marginTop: '0em', }} >Exoverse</h1>
+            <h1 style={{color: 'white' , fontSize: '1.2em', marginBottom: '0em', marginTop: '1em'}}>Welcome to</h1>
+            <h1 style={{color: 'white' , fontSize: '3.5em', marginTop: '0em', }} >Exoverse</h1>
           </div>
           <div style={{width: '50%', display: 'flex', justifyContent: 'flex-end', marginLeft: '2em' }}>
             <button style={{ width: '7em', height: '3em', margin:'2em', border: '0', borderRadius: '15px' }}>Profile   <FaUserAlt /></button>
@@ -42,8 +42,8 @@ const CharacterSelectPage = () => {
             <img  
               src={character1}
               alt="Character 1"
-              height="156"
-              width="150"
+              height="146"
+              width="140"
             />
             <p>Character 1</p>
           </div>
@@ -51,8 +51,8 @@ const CharacterSelectPage = () => {
             <img  
               src={character2}
               alt="Character 2"
-              height="150"
-              width="150"
+              height="140"
+              width="140"
            
             />
             <p>Character 2</p>

@@ -22,7 +22,7 @@ function App() {
       <Suspense fallback={null}>
         <Canvas
           shadows
-          camera={{ position: [50, 2, 3], fov: 45 }}
+          camera={{ position: [300, 25, 25], fov: 55 }}
           // loading the navigation mesh on canvas load
           onCreated={() => {
             actions.loadNavMesh("/platform_navmesh.glb");

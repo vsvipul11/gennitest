@@ -77,8 +77,10 @@ const JacobNpc = ({ name, position, heroRef }) => {
         assistantCharActions.Talking.play();
       } else {
         updateActionState.Jacob("listening");
-       // assistantCharActions.Idle.play();
-        // assistantCharActions.Talking.stop();
+        setTimeout(() => {
+          assistantCharActions.Idle.play();
+      }, 3000); // 4 seconds delay
+        assistantCharActions.Talking.stop();
         // assistantCharActions.Namaskar.stop();
       }
       window.addEventListener("keydown", client?.handleKeyPress);
@@ -141,6 +143,8 @@ const JacobNpc = ({ name, position, heroRef }) => {
             setTimeout(() => {
               assistantCharActions.Idle.play();
           }, 3000); // 4 seconds delay
+
+       
     }
   });
 
