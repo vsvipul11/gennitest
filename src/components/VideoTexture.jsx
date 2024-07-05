@@ -17,7 +17,7 @@ const VideoTexture = ({ url }) => {
 
   return (
     <>
-      <video ref={videoRef} src={url} style={{ display: 'none' }} />
+      <video ref={videoRef} src={url} />
       <meshBasicMaterial map={texture} toneMapped={false} />
     </>
   );
