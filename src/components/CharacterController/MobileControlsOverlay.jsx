@@ -1,6 +1,6 @@
 // src/components/CharacterController/MobileControlsOverlay.jsx
 import React from 'react';
-import { useInput } from "../../hooks/useInput";
+import { useInput } from "../../contexts/InputContext";
 
 const MobileControlsOverlay = () => {
   const { setInput, isMobile } = useInput();
@@ -73,6 +73,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    zIndex: 1000,
   },
   middleRow: {
     display: 'flex',
@@ -88,7 +89,7 @@ const styles = {
     backgroundColor: 'rgba(255, 255, 255, 0.5)',
     border: 'none',
     borderRadius: '50%',
-    touchAction: 'manipulation',
+    touchAction: 'none',
   },
   jumpButton: {
     width: 80,
@@ -98,7 +99,7 @@ const styles = {
     backgroundColor: 'rgba(255, 255, 255, 0.5)',
     border: 'none',
     borderRadius: 20,
-    touchAction: 'manipulation',
+    touchAction: 'none',
   },
   runButton: {
     width: 80,
@@ -108,7 +109,7 @@ const styles = {
     backgroundColor: 'rgba(255, 255, 255, 0.5)',
     border: 'none',
     borderRadius: 20,
-    touchAction: 'manipulation',
+    touchAction: 'none',
   },
 };
 
