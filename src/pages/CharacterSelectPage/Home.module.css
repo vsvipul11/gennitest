@@ -3,159 +3,36 @@
 @font-face {
   font-family: 'customFont';
   src: url('../public/font1/Variable-TT/Glancyr\ Variable-VF.ttf') format('ttf');
-
 }
 
 .homeContainer {
   font-family: sans-serif;
- margin: 0%;
- height: 100vh;
- background-image: url('./bg.png');
- background-repeat: no-repeat;
- background-size: cover;
- display: flex;
- justify-content: center;
- align-items: center;
- overflow: none;
+  margin: 0;
+  min-height: 100vh;
+  background-image: url('./bg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
 }
-.centerdiv{
+
+.centerdiv1 {
   width: 90%;
-  height: 75%;
+  max-width: 1200px;
+  height: auto;
+  min-height: 70%;
   background: rgba(255, 255, 255, 0.48);
   backdrop-filter: saturate(180%) blur(10px);
   border-radius: 15px;
   display: flex;
-  flex-direction: row;
-
-  overflow: auto;  
-}
-
-.branddiv{
-  width: 50%;
-  display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 12em;
-}
-
-.logindiv{
-  display: flex;
-  align-items: center;
-  background-color: white;
-  width: 50%;
-  height: 90%;
-  border-radius: 15px;
-  margin: 2em;
-  flex-direction: column;
-  overflow: auto;  
-  
-}
-
-
-.brandLogo {
-  width: 100px; 
-}
-
-.urldiv{
-  background-color: aliceblue;
-  padding: 8px;
-  border-radius: 20px;
-  margin-top: 11em;
-
-}
-
-.inputField {
-  margin-bottom: 10px;
-  margin-top: 10px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 15px;
-  width: 70%;
-}
-
-.submitButton {
-  padding: 10px 20px;
-  background-color: #007bff; /* Blue color, change as needed */
-  color: #fff;
-  border: none;
-  border-radius: 15px;
-  cursor: pointer;
-  width: 50%;
-  margin-top: 2em;
-}
-
-.otpdDiv {
-  display: flex;
-  align-items: center;
-  background-color: white;
-  width: 50%;
-  height: 90%;
-  border-radius: 15px;
-  margin: 2em;
-  flex-direction: column;
-  overflow: none;
-}
-
-.backButton {
-  background: none;
-  border: none;
-  font-size: 1.5em;
-  color: #0D285A;
-  cursor: pointer;
-  margin-top: 0.5em;
-  margin-left: -23em;
-}
-
-.otpInputContainer {
-  display: flex;
-  justify-content: center;
-  margin-top: 2em;
-  margin-bottom: 2em;
-}
-
-.otpInput {
-  width: 50px;
-  height: 60px;
-  margin: 0 20px;
-  text-align: center;
-  font-size: 1.2em;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #e5e5e5;
-}
-
-.resendLink {
-  color: #0075FF;
-  text-decoration: none;
-}
-
-.verifyButton {
-  margin-top: 1em;
-  padding: 10px 20px;
-  background-color: #0075FF;
-  color: white;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  width: 40%;
-}
-
-.verifyButton:hover {
-  background-color: #0056b3;
-
-}
-
-.congratsDiv{
-  display: flex;
-  align-items: center;
-  background-color: white;
-  width: 50%;
-  height: 90%;
-  border-radius: 15px;
-  margin: 2em;
-  flex-direction: column;
-  overflow: none;
-  justify-content: center;
+  border: 3px solid #fff;
+  padding: 20px;
+  overflow: auto;
 }
 
 .header {
@@ -163,16 +40,50 @@
   flex-direction: row;
   width: 100%;
   margin-bottom: 0.8em;
+  justify-content: space-between;
+  align-items: center;
 }
 
+.headerTitle {
+  display: flex;
+  flex-direction: column;
+}
 
+.welcomeText {
+  color: white;
+  font-size: 1.2em;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.exoverseText {
+  color: white;
+  font-size: 3.5em;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.headerButtons {
+  display: flex;
+  justify-content: flex-end;
+}
 
 .profileButton,
 .exitButton {
   padding: 10px 20px;
   background-color: #cccccc;
   border: none;
-  border-radius: 5px;
+  border-radius: 15px;
+  margin: 0.5em;
+  cursor: pointer;
+}
+
+.profileButton {
+  width: 7em;
+}
+
+.exitButton {
+  width: 5em;
 }
 
 .line {
@@ -184,6 +95,8 @@
 .characterCards {
   display: flex;
   gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .characterCard {
@@ -192,6 +105,23 @@
   flex-direction: column;
   align-items: center;
   cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.characterCard:hover {
+  transform: scale(1.05);
+}
+
+.selectedCharacter {
+  border: 2px solid #0075FF;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.characterImage {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
 }
 
 .characterCard p {
@@ -209,6 +139,11 @@
   margin-top: 2em;
   width: 30%;
   font-size: 1.2em;
+  transition: background-color 0.3s ease;
+}
+
+.enterButton:hover:not(:disabled) {
+  background-color: #0056b3;
 }
 
 .enterButton:disabled {
@@ -216,40 +151,76 @@
   cursor: not-allowed;
 }
 
-.centerdiv1{
-  width: 90%;
-  height: 70%;
-  background: rgba(255, 255, 255, 0.48);
-  backdrop-filter: saturate(180%) blur(10px);
-  border-radius: 15px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 3px solid #fff;
-  overflow: auto;  
+@media (max-width: 768px) {
+  .centerdiv1 {
+    width: 95%;
+    padding: 10px;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .headerTitle {
+    text-align: center;
+    margin-bottom: 1em;
+  }
+
+  .welcomeText {
+    font-size: 1em;
+  }
+
+  .exoverseText {
+    font-size: 2.5em;
+  }
+
+  .headerButtons {
+    justify-content: center;
+  }
+
+  .profileButton,
+  .exitButton {
+    padding: 8px 15px;
+    font-size: 0.9em;
+  }
+
+  .characterCards {
+    gap: 10px;
+  }
+
+  .characterImage {
+    width: 120px;
+    height: 120px;
+  }
+
+  .enterButton {
+    width: 80%;
+    font-size: 1em;
+  }
 }
 
+@media (max-width: 480px) {
+  .centerdiv1 {
+    width: 100%;
+  }
 
-.modalContainer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.5); /* Semi-transparent white for glass effect */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999; /* Ensure it's on top of everything else */
-}
+  .exoverseText {
+    font-size: 2em;
+  }
 
-.modalContent {
-  background: #fff; /* White background for the modal */
-  width: 90%; /* 90% width of the screen */
-  max-width: 600px; /* Maximum width of the modal */
-  height: 50%; /* 50% height of the screen */
-  max-height: 400px; /* Maximum height of the modal */
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Shadow effect */
-  padding: 20px;
+  .characterImage {
+    width: 100px;
+    height: 100px;
+  }
+
+  .profileButton,
+  .exitButton {
+    padding: 6px 12px;
+    font-size: 0.8em;
+  }
+
+  .enterButton {
+    width: 90%;
+  }
 }

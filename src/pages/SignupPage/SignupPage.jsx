@@ -78,7 +78,7 @@ const SignupPage = () => {
                     </form>
 
                     <p className={styles.loginPrompt}>Already Have an Account?</p>
-                    <Link to='/Login' className={styles.loginLink}>Log In</Link>
+                    <Link to='/' className={styles.loginLink}>Log In</Link>
                 </div>
             </div>
         </div>

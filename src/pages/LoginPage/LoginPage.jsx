@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import styles from './Home.module.css'; 
-import { Image } from "react-dom";
+import styles from './Home.module.css';
 import profilePic from './brandlogo.png';
 import excidelogo from './excidelogo.png';
 import { Link, useNavigate } from "react-router-dom";
@@ -59,44 +58,35 @@ const LoginPage = () => {
     <div className={styles.homeContainer}>
       <div className={styles.centerdiv}>
         <div className={styles.branddiv}>
-          <img 
+          <img
             src={profilePic}
             alt="Brand Logo"
-            height="50"
-            width="50"
-          /> 
-          <h1 style={{color: 'white' , fontWeight: 'bold', fontSize: '3em', lineHeight: '0.1', marginBottom: '0'}}> EXOVERSE</h1>  
-          <h1 style={{color: 'white', fontWeight: '300' ,fontSize: '2em',lineHeight: '1' }}> A metaverse of Exide</h1>  
+            className={styles.brandLogo}
+          />
+          <h1 className={styles.brandTitle}>EXOVERSE</h1>
+          <h2 className={styles.brandSubtitle}>A metaverse of Exide</h2>
           <div className={styles.urldiv}>
-            www.exideindustries.com 
+            www.exideindustries.com
           </div>
         </div>
 
         <div className={styles.logindiv}>
-          <img style={{marginTop: '2em'}}
+          <img
             src={excidelogo}
             alt="Exide Logo"
-            height="25"
-            width="100"
-          /> 
-          <h1 style={{color: '#0D285A', fontSize: '2em', marginTop: '2em', fontWeight: '500',   fontFamily: 'sans-serif'}}>
-            Welcome back
-          </h1>  
-          <h1 style={{color: '#8F8F8F' , fontSize: '1em', marginTop: '-1em', fontWeight: '200'}}>
-            Please enter your details
-          </h1>    
+            className={styles.exideLogo}
+          />
+          <h1 className={styles.welcomeTitle}>Welcome back</h1>
+          <h2 className={styles.welcomeSubtitle}>Please enter your details</h2>
 
           <input type="email" className={styles.inputField} placeholder="Email Address" value={email} onChange={handleEmailChange} />
-          <input type="password" className={styles.inputField} placeholder="Password" value={password} onChange={handlePasswordChange} />  
-          <button type="submit" className={styles.submitButton} onClick={handleLogin}>Login</button> 
+          <input type="password" className={styles.inputField} placeholder="Password" value={password} onChange={handlePasswordChange} />
 
-          <h1 style={{color: '#8F8F8F' , fontSize: '1em' , fontWeight: '200' , marginTop: '5em', marginBottom: '-1em' }}>
-            New here? Let's get you started by
-          </h1>
-          <Link to='/signUp'>
-            <h1 style={{color: 'blue' , fontSize: '1em' , marginTop: '1em'}}>
-              Creating an Account
-            </h1>
+          <button type="submit" className={styles.submitButton} onClick={handleLogin}>Login</button>
+
+          <p className={styles.signupPrompt}>New here? Let's get you started by</p>
+          <Link to='/signUp' className={styles.signupLink}>
+            Creating an Account
           </Link>
         </div>
       </div>

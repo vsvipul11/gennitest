@@ -3,88 +3,40 @@
 @font-face {
   font-family: 'customFont';
   src: url('../public/font1/Variable-TT/Glancyr\ Variable-VF.ttf') format('ttf');
-
 }
 
 .homeContainer {
   font-family: sans-serif;
- margin: 0%;
- height: 100vh;
- background-image: url('./bg.png');
- background-repeat: no-repeat;
- background-size: cover;
- display: flex;
- justify-content: center;
- align-items: center;
- overflow: none;
+  margin: 0;
+  min-height: 100vh;
+  background-image: url('./bg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
 }
-.centerdiv{
-  width: 90%;
-  height: 75%;
+
+.centerdiv {
+  width: 100%;
+  max-width: 1200px;
   background: rgba(255, 255, 255, 0.48);
   backdrop-filter: saturate(180%) blur(10px);
   border-radius: 15px;
   display: flex;
   flex-direction: row;
-  overflow: auto;  
-
-
+  overflow: hidden;
 }
 
-.branddiv{
+.branddiv {
   width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 6em;
-  overflow: auto;  
   justify-content: center;
-}
-
-.logindiv{
-  display: flex;
-  align-items: center;
-  background-color: white;
-  width: 50%;
-  height: 90%;
-  border-radius: 15px;
-  margin: 2em;
-  flex-direction: column;
-  overflow: auto;  
-  
-}
-
-
-.brandLogo {
-  width: 100px; 
-}
-
-.urldiv{
-  background-color: aliceblue;
-  padding: 8px;
-  border-radius: 20px;
-  margin-top: 8em;
-
-}
-
-.inputField {
-  margin-bottom: 10px;
-  margin-top: 10px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 15px;
-  width: 70%;
-}
-
-.submitButton {
-  padding: 10px 20px;
-  background-color: #007bff; /* Blue color, change as needed */
-  color: #fff;
-  border: none;
-  border-radius: 15px;
-  cursor: pointer;
-  width: 50%;
-  margin-top: 2em;
+  padding: 2em;
 }
 
 .otpdDiv {
@@ -92,11 +44,41 @@
   align-items: center;
   background-color: white;
   width: 50%;
-  height: 90%;
   border-radius: 15px;
   margin: 2em;
   flex-direction: column;
-  overflow: none;
+  padding: 2em;
+  position: relative;
+}
+
+.brandLogo {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 1em;
+}
+
+.brandTitle {
+  color: white;
+  font-weight: bold;
+  font-size: 3em;
+  margin: 0;
+  text-align: center;
+}
+
+.brandSubtitle {
+  color: white;
+  font-weight: 300;
+  font-size: 2em;
+  margin: 0.5em 0;
+  text-align: center;
+}
+
+.urldiv {
+  background-color: aliceblue;
+  padding: 8px;
+  border-radius: 20px;
+  margin-top: 2em;
+  text-align: center;
 }
 
 .backButton {
@@ -105,8 +87,17 @@
   font-size: 1.5em;
   color: #0D285A;
   cursor: pointer;
-  margin-top: 0.5em;
-  margin-left: -23em;
+  position: absolute;
+  top: 1em;
+  left: 1em;
+}
+
+.otpTitle {
+  color: black;
+  font-size: 1.2em;
+  margin-top: 3em;
+  font-weight: 500;
+  text-align: center;
 }
 
 .otpInputContainer {
@@ -119,7 +110,7 @@
 .otpInput {
   width: 50px;
   height: 60px;
-  margin: 0 20px;
+  margin: 0 10px;
   text-align: center;
   font-size: 1.2em;
   border: 1px solid #ccc;
@@ -127,131 +118,77 @@
   background-color: #e5e5e5;
 }
 
+.resendText {
+  color: #8F8F8F;
+  font-size: 1em;
+  font-weight: 200;
+  margin-top: 1em;
+  text-align: center;
+}
+
 .resendLink {
   color: #0075FF;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .verifyButton {
-  margin-top: 1em;
+  margin-top: 2em;
   padding: 10px 20px;
   background-color: #0075FF;
   color: white;
   border: none;
   border-radius: 20px;
   cursor: pointer;
-  width: 40%;
+  width: 100%;
+  max-width: 200px;
 }
 
 .verifyButton:hover {
   background-color: #0056b3;
-
 }
 
-.congratsDiv{
-  display: flex;
-  align-items: center;
-  background-color: white;
-  width: 50%;
-  height: 90%;
-  border-radius: 15px;
-  margin: 2em;
-  flex-direction: column;
-  overflow: none;
-  justify-content: center;
-}
+@media (max-width: 768px) {
+  .centerdiv {
+    flex-direction: column;
+  }
 
-.header {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  margin-bottom: 20px;
-}
+  .branddiv, .otpdDiv {
+    width: 91%;
+    margin: 0;
+    padding: 1em;
+  }
 
+  .brandTitle {
+    font-size: 2em;
+  }
 
+  .brandSubtitle {
+    font-size: 1.5em;
+  }
 
-.profileButton,
-.exitButton {
-  padding: 10px 20px;
-  background-color: #cccccc;
-  border: none;
-  border-radius: 5px;
-}
+  .otpTitle {
+    font-size: 1em;
+    margin-top: 2em;
+  }
 
-.line {
-  width: 90%;
-  border-top: 1px solid #ffffff;
-  margin-bottom: 20px;
-}
+  .otpInput {
+    width: 40px;
+    height: 50px;
+    margin: 0 5px;
+    font-size: 1em;
+  }
 
-.characterCards {
-  display: flex;
-  gap: 20px;
-}
+  .verifyButton {
+    max-width: 100%;
+  }
 
-.characterCard {
-  font-family: 'customFont';
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
-}
+  .backButton {
+    top: 0.5em;
+    left: 0.5em;
+  }
 
-.characterCard p {
-  margin-top: 10px;
-}
-
-.enterButton {
-  font-family: 'customFont';
-  padding: 15px 20px;
-  background-color: #0075FF;
-  color: white;
-  border: none;
-  border-radius: 15px;
-  cursor: pointer;
-  margin-top: 2em;
-  width: 30%;
-  font-size: 1.2em;
-}
-
-.enterButton:disabled {
-  background-color: #cccccc;
-  cursor: not-allowed;
-}
-
-.centerdiv1{
-  width: 90%;
-  height: 70%;
-  background: rgba(255, 255, 255, 0.48);
-  backdrop-filter: saturate(180%) blur(10px);
-  border-radius: 15px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 3px solid #fff;
-}
-
-
-.modalContainer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.5); /* Semi-transparent white for glass effect */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999; /* Ensure it's on top of everything else */
-}
-
-.modalContent {
-  background: #fff; /* White background for the modal */
-  width: 90%; /* 90% width of the screen */
-  max-width: 600px; /* Maximum width of the modal */
-  height: 50%; /* 50% height of the screen */
-  max-height: 400px; /* Maximum height of the modal */
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Shadow effect */
-  padding: 20px;
+  .urldiv {
+    margin-top: 1em;
+  }
 }

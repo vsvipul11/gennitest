@@ -1,71 +1,98 @@
-/* Home.module.css */
-
-/* @font-face {
-  font-family: 'customFont';
-  src: url('../public/font1/Variable-TT/Glancyr\ Variable-VF.ttf') format('ttf');
-
-} */
-
-
-
 .homeContainer {
   font-family: sans-serif;
- margin: 0%;
- height: 100vh;
- background-image: url('./bg.png');
- background-repeat: no-repeat;
- background-size: cover;
- display: flex;
- justify-content: center;
- align-items: center;
- overflow: none;
+  margin: 0;
+  min-height: 100vh;
+  background-image: url('./bg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
 }
-.centerdiv{
-  width: 90%;
-  height: 75%;
+
+.centerdiv {
+  width: 100%;
+  max-width: 1200px;
   background: rgba(255, 255, 255, 0.48);
   backdrop-filter: saturate(180%) blur(10px);
   border-radius: 15px;
   display: flex;
   flex-direction: row;
-  overflow: auto; /* or overflow: scroll; */
-
+  overflow: hidden;
 }
 
-.branddiv{
+.branddiv {
   width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* margin-top: 12em; */
-  overflow: auto; /* or overflow: scroll; */
+  padding: 2em;
 }
 
-.logindiv{
+.logindiv {
   display: flex;
   align-items: center;
   background-color: white;
   width: 50%;
-  height: 90%;
   border-radius: 15px;
   margin: 2em;
   flex-direction: column;
-  overflow: auto; /* or overflow: scroll; */
-  
+  padding: 2em;
 }
-
 
 .brandLogo {
-  width: 100px; 
+  width: 50px;
+  height: 50px;
+  margin-bottom: 1em;
 }
 
-.urldiv{
+.brandTitle {
+  color: white;
+  font-weight: bold;
+  font-size: 3em;
+  margin: 0;
+  text-align: center;
+}
+
+.brandSubtitle {
+  color: white;
+  font-weight: 300;
+  font-size: 2em;
+  margin: 0.5em 0;
+  text-align: center;
+}
+
+.urldiv {
   background-color: aliceblue;
   padding: 8px;
   border-radius: 20px;
-  margin-top: 11em;
+  margin-top: 2em;
+  text-align: center;
+}
 
+.exideLogo {
+  height: 25px;
+  width: 100px;
+  margin-top: 2em;
+}
+
+.welcomeTitle {
+  color: #0D285A;
+  font-size: 2em;
+  margin-top: 1em;
+  font-weight: 500;
+  text-align: center;
+}
+
+.welcomeSubtitle {
+  color: #8F8F8F;
+  font-size: 1em;
+  margin-top: -0.5em;
+  font-weight: 200;
+  text-align: center;
 }
 
 .inputField {
@@ -74,20 +101,78 @@
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 15px;
-  width: 70%;
+  width: 100%;
+  max-width: 300px;
 }
 
 .submitButton {
   padding: 10px 20px;
-  background-color: #007bff; /* Blue color, change as needed */
+  background-color: #007bff;
   color: #fff;
   border: none;
   border-radius: 15px;
   cursor: pointer;
-  width: 50%;
+  width: 100%;
+  max-width: 200px;
   margin-top: 2em;
 }
 
+.signupPrompt {
+  color: #8F8F8F;
+  font-size: 1em;
+  font-weight: 200;
+  margin-top: 3em;
+  margin-bottom: 0;
+  text-align: center;
+}
 
+.signupLink {
+  color: blue;
+  font-size: 1em;
+  margin-top: 0.5em;
+  text-decoration: none;
+}
 
+@media (max-width: 768px) {
+  .centerdiv {
+    flex-direction: column;
+  }
 
+  .branddiv, .logindiv {
+    width: 91%;
+    margin: 0;
+    padding: 1em;
+  }
+
+  .brandTitle {
+    font-size: 2em;
+  }
+
+  .brandSubtitle {
+    font-size: 1.5em;
+  }
+
+  .welcomeTitle {
+    font-size: 1.5em;
+  }
+
+  .welcomeSubtitle {
+    font-size: 0.9em;
+  }
+
+  .inputField {
+    max-width: 100%;
+  }
+
+  .submitButton {
+    max-width: 100%;
+  }
+
+  .urldiv {
+    margin-top: 1em;
+  }
+
+  .signupPrompt {
+    margin-top: 2em;
+  }
+}
