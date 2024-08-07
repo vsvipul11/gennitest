@@ -1,68 +1,101 @@
-/* Home.module.css */
-
-/* @font-face {
-  font-family: 'customFont';
-  src: url('../public/font1/Variable-TT/Glancyr\ Variable-VF.ttf') format('ttf');
-
-} */
-
 .homeContainer {
   font-family: sans-serif;
- margin: 0%;
- height: 100vh;
- background-image: url('./bg.png');
- background-repeat: no-repeat;
- background-size: cover;
- display: flex;
- justify-content: center;
- align-items: center;
- overflow: none;
+  margin: 0;
+  min-height: 100vh;
+  background-image: url('./bg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
 }
-.centerdiv{
-  width: 90%;
-  height: 75%;
+
+.centerdiv {
+  width: 100%;
+  max-width: 1200px;
   background: rgba(255, 255, 255, 0.48);
   backdrop-filter: saturate(180%) blur(10px);
   border-radius: 15px;
   display: flex;
   flex-direction: row;
-  overflow: auto;
-
+  overflow: hidden;
 }
 
-.branddiv{
+.branddiv {
   width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 4em;
-  overflow: auto;
+  padding: 2em;
 }
 
-.logindiv{
+.logindiv {
   display: flex;
   align-items: center;
   background-color: white;
   width: 50%;
-  height: 90%;
   border-radius: 15px;
   margin: 2em;
   flex-direction: column;
-  overflow: auto;  
+  padding: 2em;
 }
-
 
 .brandLogo {
-  width: 4em; 
+  width: 50px;
+  height: 50px;
+  margin-bottom: 1em;
 }
 
-.urldiv{
+.brandTitle {
+  color: white;
+  font-weight: bold;
+  font-size: 3em;
+  margin: 0;
+}
+
+.brandSubtitle {
+  color: white;
+  font-weight: 300;
+  font-size: 2em;
+  margin: 0.5em 0;
+}
+
+.urldiv {
   background-color: aliceblue;
   padding: 8px;
   border-radius: 20px;
-  margin-top: 8em;
+  margin-top: 2em;
+}
 
+.exideLogo {
+  height: 25px;
+  width: 100px;
+  margin-top: 1em;
+}
+
+.welcomeTitle {
+  color: #0D285A;
+  font-size: 2em;
+  margin-top: 0.2em;
+  font-weight: 500;
+}
+
+.welcomeSubtitle {
+  color: #8F8F8F;
+  font-size: 1em;
+  margin-top: -1em;
+  font-weight: 200;
+  text-align: center;
+}
+
+.signupForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 .inputField {
@@ -71,185 +104,74 @@
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 15px;
-  width: 70%;
+  width: 100%;
+  max-width: 300px;
 }
 
 .submitButton {
   padding: 10px 20px;
-  background-color: #007bff; /* Blue color, change as needed */
+  background-color: #007bff;
   color: #fff;
   border: none;
   border-radius: 15px;
   cursor: pointer;
-  width: 50%;
+  width: 100%;
+  max-width: 200px;
   margin-top: 2em;
 }
 
-.otpdDiv {
-  display: flex;
-  align-items: center;
-  background-color: white;
-  width: 50%;
-  height: 90%;
-  border-radius: 15px;
-  margin: 2em;
-  flex-direction: column;
-  overflow: none;
+.errorMessage {
+  color: red;
+  margin-bottom: 0.5em;
 }
 
-.backButton {
-  background: none;
-  border: none;
-  font-size: 1.5em;
-  color: #0D285A;
-  cursor: pointer;
+.loginPrompt {
+  color: #8F8F8F;
+  font-size: 1em;
+  font-weight: 200;
+  margin-top: 1em;
+  margin-bottom: 0;
+}
+
+.loginLink {
+  color: blue;
+  font-size: 1em;
   margin-top: 0.5em;
-  margin-left: -23em;
-}
-
-.otpInputContainer {
-  display: flex;
-  justify-content: center;
-  margin-top: 2em;
-  margin-bottom: 2em;
-}
-
-.otpInput {
-  width: 50px;
-  height: 60px;
-  margin: 0 20px;
-  text-align: center;
-  font-size: 1.2em;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #e5e5e5;
-}
-
-.resendLink {
-  color: #0075FF;
   text-decoration: none;
 }
 
-.verifyButton {
-  margin-top: 1em;
-  padding: 10px 20px;
-  background-color: #0075FF;
-  color: white;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  width: 40%;
-}
+@media (max-width: 768px) {
+  .centerdiv {
+    flex-direction: column;
+  }
 
-.verifyButton:hover {
-  background-color: #0056b3;
+  .branddiv, .logindiv {
+    width: 100%;
+    margin: 0;
+    padding: 1em;
+  }
 
-}
+  .brandTitle {
+    font-size: 2em;
+  }
 
-.congratsDiv{
-  display: flex;
-  align-items: center;
-  background-color: white;
-  width: 50%;
-  height: 90%;
-  border-radius: 15px;
-  margin: 2em;
-  flex-direction: column;
-  overflow: none;
-  justify-content: center;
-}
+  .brandSubtitle {
+    font-size: 1.5em;
+  }
 
-.header {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  margin-bottom: 20px;
-}
+  .welcomeTitle {
+    font-size: 1.5em;
+  }
 
+  .welcomeSubtitle {
+    font-size: 0.9em;
+  }
 
+  .inputField {
+    max-width: 100%;
+  }
 
-.profileButton,
-.exitButton {
-  padding: 10px 20px;
-  background-color: #cccccc;
-  border: none;
-  border-radius: 5px;
-}
-
-.line {
-  width: 90%;
-  border-top: 1px solid #ffffff;
-  margin-bottom: 20px;
-}
-
-.characterCards {
-  display: flex;
-  gap: 20px;
-}
-
-.characterCard {
-  font-family: 'customFont';
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
-}
-
-.characterCard p {
-  margin-top: 10px;
-}
-
-.enterButton {
-  font-family: 'customFont';
-  padding: 15px 20px;
-  background-color: #0075FF;
-  color: white;
-  border: none;
-  border-radius: 15px;
-  cursor: pointer;
-  margin-top: 2em;
-  width: 30%;
-  font-size: 1.2em;
-}
-
-.enterButton:disabled {
-  background-color: #cccccc;
-  cursor: not-allowed;
-}
-
-.centerdiv1{
-  width: 90%;
-  height: 70%;
-  background: rgba(255, 255, 255, 0.48);
-  backdrop-filter: saturate(180%) blur(10px);
-  border-radius: 15px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 3px solid #fff;
-}
-
-
-.modalContainer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.5); /* Semi-transparent white for glass effect */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999; /* Ensure it's on top of everything else */
-}
-
-.modalContent {
-  background: #fff; /* White background for the modal */
-  width: 90%; /* 90% width of the screen */
-  max-width: 600px; /* Maximum width of the modal */
-  height: 50%; /* 50% height of the screen */
-  max-height: 400px; /* Maximum height of the modal */
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Shadow effect */
-  padding: 20px;
+  .submitButton {
+    max-width: 100%;
+  }
 }
