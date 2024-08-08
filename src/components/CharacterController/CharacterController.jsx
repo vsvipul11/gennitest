@@ -91,10 +91,10 @@ export const CharacterController = ({ reference }) => {
 
     // Movement
     const moveDirection = new THREE.Vector3(0, 0, 0);
-    if (forward) moveDirection.z -= 1;
-    if (backward) moveDirection.z += 1;
-    if (left) moveDirection.x -= 1;
-    if (right) moveDirection.x += 1;
+    if (forward) moveDirection.z += 1;
+    if (backward) moveDirection.z -= 1;
+    if (left) moveDirection.x += 1;
+    if (right) moveDirection.x -= 1;
     moveDirection.normalize();
 
     if (moveDirection.length() > 0) {

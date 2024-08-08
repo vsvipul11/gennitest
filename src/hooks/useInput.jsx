@@ -39,20 +39,20 @@ export const useInput = () => {
 
   const handleKeyUp = useCallback((e) => {
     switch (e.code) {
-      case 'KeyW':
-      case 'ArrowUp':
-        setInput((prev) => ({ ...prev, forward: false }));
-        break;
       case 'KeyS':
       case 'ArrowDown':
-        setInput((prev) => ({ ...prev, backward: false }));
+        setInput((prev) => ({ ...prev, forward: false }));
         break;
-      case 'KeyA':
-      case 'ArrowLeft':
-        setInput((prev) => ({ ...prev, left: false }));
+      case 'KeyW':
+      case 'ArrowUp':
+        setInput((prev) => ({ ...prev, backward: false }));
         break;
       case 'KeyD':
       case 'ArrowRight':
+        setInput((prev) => ({ ...prev, left: false }));
+        break;
+      case 'KeyA':
+      case 'ArrowLeft':
         setInput((prev) => ({ ...prev, right: false }));
         break;
       case 'Space':
