@@ -1,66 +1,81 @@
-// src/components/CharacterController/MobileControlsOverlay.jsx
-import React from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useInput } from "../../contexts/InputContext";
 
 const MobileControlsOverlay = () => {
-  const { setInput, isMobile } = useInput();
+  const { updateInput } = useInput();
+  const [isMobile, setIsMobile] = useState(false);
+  const controlsRef = useRef(null);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+    };
+  }, []);
+
+  useEffect(() => {
+    const controls = controlsRef.current;
+    if (!controls || !isMobile) return;
+
+    const handleTouchStart = (e) => {
+      e.preventDefault();
+      const touch = e.touches[0];
+      const target = document.elementFromPoint(touch.clientX, touch.clientY);
+      const input = target.dataset.input;
+      if (input) {
+        updateInput(input, true);
+      }
+    };
+
+    const handleTouchMove = (e) => {
+      e.preventDefault();
+      const touch = e.touches[0];
+      const target = document.elementFromPoint(touch.clientX, touch.clientY);
+      if (target && target.dataset.input) {
+        const newInput = target.dataset.input;
+        updateInput(newInput, true);
+      }
+    };
+
+    const handleTouchEnd = (e) => {
+      e.preventDefault();
+      updateInput('forward', false);
+      updateInput('backward', false);
+      updateInput('left', false);
+      updateInput('right', false);
+      updateInput('jump', false);
+      updateInput('shift', false);
+    };
+
+    controls.addEventListener('touchstart', handleTouchStart, { passive: false });
+    controls.addEventListener('touchmove', handleTouchMove, { passive: false });
+    controls.addEventListener('touchend', handleTouchEnd, { passive: false });
+
+    return () => {
+      controls.removeEventListener('touchstart', handleTouchStart);
+      controls.removeEventListener('touchmove', handleTouchMove);
+      controls.removeEventListener('touchend', handleTouchEnd);
+    };
+  }, [isMobile, updateInput]);
 
   if (!isMobile) return null;
 
-  const handleTouchStart = (inputName) => {
-    setInput((prev) => ({ ...prev, [inputName]: true }));
-  };
-
-  const handleTouchEnd = (inputName) => {
-    setInput((prev) => ({ ...prev, [inputName]: false }));
-  };
-
   return (
-    <div style={styles.controlsContainer}>
-      <button
-        style={styles.button}
-        onTouchStart={() => handleTouchStart('forward')}
-        onTouchEnd={() => handleTouchEnd('forward')}
-      >
-        ↑
-      </button>
+    <div ref={controlsRef} style={styles.controlsContainer}>
+      <div style={styles.button} data-input="forward">↑</div>
       <div style={styles.middleRow}>
-        <button
-          style={styles.button}
-          onTouchStart={() => handleTouchStart('left')}
-          onTouchEnd={() => handleTouchEnd('left')}
-        >
-          ←
-        </button>
-        <button
-          style={styles.button}
-          onTouchStart={() => handleTouchStart('right')}
-          onTouchEnd={() => handleTouchEnd('right')}
-        >
-          →
-        </button>
+        <div style={styles.button} data-input="left">←</div>
+        <div style={styles.button} data-input="right">→</div>
       </div>
-      <button
-        style={styles.button}
-        onTouchStart={() => handleTouchStart('backward')}
-        onTouchEnd={() => handleTouchEnd('backward')}
-      >
-        ↓
-      </button>
-      <button
-        style={styles.jumpButton}
-        onTouchStart={() => handleTouchStart('jump')}
-        onTouchEnd={() => handleTouchEnd('jump')}
-      >
-        Jump
-      </button>
-      <button
-        style={styles.runButton}
-        onTouchStart={() => handleTouchStart('shift')}
-        onTouchEnd={() => handleTouchEnd('shift')}
-      >
-        Run
-      </button>
+      <div style={styles.button} data-input="backward">↓</div>
+      <div style={styles.jumpButton} data-input="jump">Jump</div>
+      <div style={styles.runButton} data-input="shift">Run</div>
     </div>
   );
 };
@@ -74,6 +89,7 @@ const styles = {
     flexDirection: 'column',
     alignItems: 'center',
     zIndex: 1000,
+    touchAction: 'none',
   },
   middleRow: {
     display: 'flex',
@@ -89,7 +105,10 @@ const styles = {
     backgroundColor: 'rgba(255, 255, 255, 0.5)',
     border: 'none',
     borderRadius: '50%',
-    touchAction: 'none',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    userSelect: 'none',
   },
   jumpButton: {
     width: 80,
@@ -99,7 +118,10 @@ const styles = {
     backgroundColor: 'rgba(255, 255, 255, 0.5)',
     border: 'none',
     borderRadius: 20,
-    touchAction: 'none',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    userSelect: 'none',
   },
   runButton: {
     width: 80,
@@ -109,7 +131,10 @@ const styles = {
     backgroundColor: 'rgba(255, 255, 255, 0.5)',
     border: 'none',
     borderRadius: 20,
-    touchAction: 'none',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    userSelect: 'none',
   },
 };
 

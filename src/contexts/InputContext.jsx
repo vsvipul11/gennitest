@@ -1,5 +1,4 @@
-// src/contexts/InputContext.js
-import React, { createContext, useState, useContext, useEffect } from 'react';
+import React, { createContext, useContext, useState, useCallback, useEffect } from 'react';
 
 const InputContext = createContext();
 
@@ -13,34 +12,65 @@ export const InputProvider = ({ children }) => {
     shift: false,
   });
 
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 768);
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+  const updateInput = useCallback((inputName, value) => {
+    setInput((prev) => ({ ...prev, [inputName]: value }));
   }, []);
 
+  const handleKeyDown = useCallback((e) => {
+    switch (e.code) {
+      case 'KeyW':
+      case 'ArrowUp':
+        updateInput('forward', true);
+        break;
+      case 'KeyS':
+      case 'ArrowDown':
+        updateInput('backward', true);
+        break;
+      case 'KeyA':
+      case 'ArrowLeft':
+        updateInput('left', true);
+        break;
+      case 'KeyD':
+      case 'ArrowRight':
+        updateInput('right', true);
+        break;
+      case 'Space':
+        updateInput('jump', true);
+        break;
+      case 'ShiftLeft':
+        updateInput('shift', true);
+        break;
+    }
+  }, [updateInput]);
+
+  const handleKeyUp = useCallback((e) => {
+    switch (e.code) {
+      case 'KeyW':
+      case 'ArrowUp':
+        updateInput('forward', false);
+        break;
+      case 'KeyS':
+      case 'ArrowDown':
+        updateInput('backward', false);
+        break;
+      case 'KeyA':
+      case 'ArrowLeft':
+        updateInput('left', false);
+        break;
+      case 'KeyD':
+      case 'ArrowRight':
+        updateInput('right', false);
+        break;
+      case 'Space':
+        updateInput('jump', false);
+        break;
+      case 'ShiftLeft':
+        updateInput('shift', false);
+        break;
+    }
+  }, [updateInput]);
+
   useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (e.code === 'KeyW') setInput((prev) => ({ ...prev, forward: true }));
-      if (e.code === 'KeyS') setInput((prev) => ({ ...prev, backward: true }));
-      if (e.code === 'KeyA') setInput((prev) => ({ ...prev, left: true }));
-      if (e.code === 'KeyD') setInput((prev) => ({ ...prev, right: true }));
-      if (e.code === 'Space') setInput((prev) => ({ ...prev, jump: true }));
-      if (e.code === 'ShiftLeft') setInput((prev) => ({ ...prev, shift: true }));
-    };
-
-    const handleKeyUp = (e) => {
-      if (e.code === 'KeyW') setInput((prev) => ({ ...prev, forward: false }));
-      if (e.code === 'KeyS') setInput((prev) => ({ ...prev, backward: false }));
-      if (e.code === 'KeyA') setInput((prev) => ({ ...prev, left: false }));
-      if (e.code === 'KeyD') setInput((prev) => ({ ...prev, right: false }));
-      if (e.code === 'Space') setInput((prev) => ({ ...prev, jump: false }));
-      if (e.code === 'ShiftLeft') setInput((prev) => ({ ...prev, shift: false }));
-    };
-
     window.addEventListener('keydown', handleKeyDown);
     window.addEventListener('keyup', handleKeyUp);
 
@@ -48,10 +78,10 @@ export const InputProvider = ({ children }) => {
       window.removeEventListener('keydown', handleKeyDown);
       window.removeEventListener('keyup', handleKeyUp);
     };
-  }, []);
+  }, [handleKeyDown, handleKeyUp]);
 
   return (
-    <InputContext.Provider value={{ input, setInput, isMobile }}>
+    <InputContext.Provider value={{ input, updateInput }}>
       {children}
     </InputContext.Provider>
   );

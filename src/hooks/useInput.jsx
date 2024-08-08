@@ -1,4 +1,3 @@
-// src/hooks/useInput.js
 import { useState, useEffect, useCallback } from 'react';
 
 export const useInput = () => {
@@ -11,46 +10,73 @@ export const useInput = () => {
     shift: false,
   });
 
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
   const handleKeyDown = useCallback((e) => {
-    if (e.code === 'KeyW') setInput((prev) => ({ ...prev, forward: true }));
-    if (e.code === 'KeyS') setInput((prev) => ({ ...prev, backward: true }));
-    if (e.code === 'KeyA') setInput((prev) => ({ ...prev, left: true }));
-    if (e.code === 'KeyD') setInput((prev) => ({ ...prev, right: true }));
-    if (e.code === 'Space') setInput((prev) => ({ ...prev, jump: true }));
-    if (e.code === 'ShiftLeft') setInput((prev) => ({ ...prev, shift: true }));
+    switch (e.code) {
+      case 'KeyW':
+      case 'ArrowUp':
+        setInput((prev) => ({ ...prev, forward: true }));
+        break;
+      case 'KeyS':
+      case 'ArrowDown':
+        setInput((prev) => ({ ...prev, backward: true }));
+        break;
+      case 'KeyA':
+      case 'ArrowLeft':
+        setInput((prev) => ({ ...prev, left: true }));
+        break;
+      case 'KeyD':
+      case 'ArrowRight':
+        setInput((prev) => ({ ...prev, right: true }));
+        break;
+      case 'Space':
+        setInput((prev) => ({ ...prev, jump: true }));
+        break;
+      case 'ShiftLeft':
+        setInput((prev) => ({ ...prev, shift: true }));
+        break;
+    }
   }, []);
 
   const handleKeyUp = useCallback((e) => {
-    if (e.code === 'KeyW') setInput((prev) => ({ ...prev, forward: false }));
-    if (e.code === 'KeyS') setInput((prev) => ({ ...prev, backward: false }));
-    if (e.code === 'KeyA') setInput((prev) => ({ ...prev, left: false }));
-    if (e.code === 'KeyD') setInput((prev) => ({ ...prev, right: false }));
-    if (e.code === 'Space') setInput((prev) => ({ ...prev, jump: false }));
-    if (e.code === 'ShiftLeft') setInput((prev) => ({ ...prev, shift: false }));
+    switch (e.code) {
+      case 'KeyW':
+      case 'ArrowUp':
+        setInput((prev) => ({ ...prev, forward: false }));
+        break;
+      case 'KeyS':
+      case 'ArrowDown':
+        setInput((prev) => ({ ...prev, backward: false }));
+        break;
+      case 'KeyA':
+      case 'ArrowLeft':
+        setInput((prev) => ({ ...prev, left: false }));
+        break;
+      case 'KeyD':
+      case 'ArrowRight':
+        setInput((prev) => ({ ...prev, right: false }));
+        break;
+      case 'Space':
+        setInput((prev) => ({ ...prev, jump: false }));
+        break;
+      case 'ShiftLeft':
+        setInput((prev) => ({ ...prev, shift: false }));
+        break;
+    }
   }, []);
 
   useEffect(() => {
-    document.addEventListener('keydown', handleKeyDown);
-    document.addEventListener('keyup', handleKeyUp);
+    window.addEventListener('keydown', handleKeyDown);
+    window.addEventListener('keyup', handleKeyUp);
 
     return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-      document.removeEventListener('keyup', handleKeyUp);
+      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('keyup', handleKeyUp);
     };
   }, [handleKeyDown, handleKeyUp]);
 
-  return { input, setInput, isMobile };
+  const updateInput = useCallback((inputName, value) => {
+    setInput((prev) => ({ ...prev, [inputName]: value }));
+  }, []);
+
+  return { ...input, setInput: updateInput };
 };

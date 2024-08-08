@@ -1,10 +1,9 @@
-// src/App.jsx
+import React, { Suspense, useRef } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Experience } from "./components/Experience";
 import { Loader, Stats } from "@react-three/drei";
 import { Physics } from "@react-three/rapier";
 import { useZustStore } from "./hooks/useStore";
-import { Suspense, useRef } from "react";
 import ChatBubble from "./components/chat/Chat";
 import MobileControlsOverlay from './components/CharacterController/MobileControlsOverlay';
 import { InputProvider } from './contexts/InputContext';
@@ -23,7 +22,7 @@ function App() {
         <Suspense fallback={null}>
           <Canvas
             shadows
-            camera={{ position: [300, 25, 25], fov: 55 }}
+            camera={{ fov: 55 }}
             onCreated={() => {
               actions.loadNavMesh("/platform_navmesh.glb");
             }}
@@ -46,4 +45,4 @@ function App() {
   );
 }
 
-export default App;  
+export default App;
